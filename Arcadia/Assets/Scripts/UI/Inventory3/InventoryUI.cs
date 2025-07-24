@@ -4,7 +4,6 @@ namespace Arcadia.UI.Inventory3
 {
     public class InventoryUI : MonoBehaviour
     {
-        [SerializeField] private InventorySlotUI _inventorySlotUI;
         [SerializeField] private Transform _slotPanel;
         private InventoryViewModel _inventoryViewModel;
         private InventorySlotUI[] _slotUIs;

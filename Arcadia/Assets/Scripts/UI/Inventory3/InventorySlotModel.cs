@@ -106,15 +106,10 @@ namespace Arcadia.UI.Inventory3
         /// </summary>
         public bool IsSameItem(ItemSO itemSO)
         {
-            if (itemSO.ItemID == _itemSO.ItemID && itemSO.ItemColor == _itemSO.ItemColor &&
-                itemSO.ItemType == _itemSO.ItemType)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            if (_itemSO == null || itemSO == null) return false;
+            return _itemSO.ItemID == itemSO.ItemID &&
+                   _itemSO.ItemColor == itemSO.ItemColor &&
+                   _itemSO.ItemType == itemSO.ItemType;
         }
         /// <summary>
         /// 현재 슬롯에 추가로 넣을 수 있는 아이템 수량 체크

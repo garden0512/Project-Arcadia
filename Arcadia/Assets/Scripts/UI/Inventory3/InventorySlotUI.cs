@@ -27,7 +27,7 @@ namespace Arcadia.UI.Inventory3
         /// </summary>
         public void UpdateUI()
         {
-            if (_inventorySlotViewModel != null || _inventorySlotViewModel.IsEmpty)
+            if (_inventorySlotViewModel == null || _inventorySlotViewModel.IsEmpty)
             {
                 _itemIcon.enabled = false;
                 _itemQuantity.text = "";
