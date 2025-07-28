@@ -26,7 +26,7 @@ namespace Arcadia.UI.Inventory3
         /// 뷰모델의 현재 상태 기준으로 UI요소 갱신
         /// </summary>
         public void UpdateUI()
-        {
+        { ;
             if (_inventorySlotViewModel == null || _inventorySlotViewModel.IsEmpty)
             {
                 _itemIcon.enabled = false;

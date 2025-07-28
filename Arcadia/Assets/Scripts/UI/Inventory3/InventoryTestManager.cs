@@ -24,13 +24,13 @@ namespace Arcadia.UI.Inventory3
             if (Input.GetKeyDown(KeyCode.O))
             {
                 Debug.Log("아이템 추가");
-                _inventoryModel.TryAddItem(_itemSo, 1);
+                _inventoryViewModel.TryAddItem(_itemSo, 1);
             }
 
             if (Input.GetKeyDown(KeyCode.X))
             {
                 Debug.Log("아이템 제거");
-                _inventoryModel.TryRemoveItem(_itemSo, 1);
+                _inventoryViewModel.TryRemoveItem(_itemSo, 1);
             }
         }
     }
