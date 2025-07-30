@@ -40,17 +40,12 @@ namespace Arcadia.UI.Inventory3
         {
             if (itemSO == null || quantity <= 0)
             {
-                Debug.LogError("AddItem: Invalid item or quantity.");
-                return;
+                Debug.LogError("InventorySlotModel::AddItem : 아이템이 없거나 개수가 음수값입니다.(양수만 가능)");
             }
-
-            if (_itemSO == null)
+            else if (_itemSO.ItemID != itemSO.ItemID || _itemSO.ItemColor != itemSO.ItemColor ||
+                     _itemSO.ItemType != itemSO.ItemType)
             {
-                AssignItem(itemSO, quantity);
-            }
-            else if (!IsSameItem(itemSO))
-            {
-                Debug.LogError("AddItem: Item mismatch.");
+                Debug.LogError("InventorySlotModel::AddItem : 아이템의 타입/ID/컬러 중 하나가 일치하지 않은 것이 들어왔습니다.");
             }
             else
             {
