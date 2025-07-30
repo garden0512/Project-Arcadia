@@ -11,7 +11,7 @@
     "description" : "가장 기본적인 칼입니다.",
     "stackable" : false,
     "rarity" : 6,
-    "slug" : "bronze_sword"
+    "slug" : "cursorSword_bronze"
   },
   {
     "id" : 1,
@@ -25,6 +25,6 @@
     "description" : "은으로 만든 칼입니다.",
     "stackable" : true,
     "rarity" : 5,
-    "slug" : "sliver_sword"
+    "slug" : "cursorSword_silver"
   }
 ]
