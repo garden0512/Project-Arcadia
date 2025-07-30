@@ -1,72 +1,65 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : MonoBehaviour
+namespace Arcadia.Player
 {
-    [SerializeField] float speed = 2f;
-    [SerializeField] float inputValueX;
-    [SerializeField] float inputValueY;
-    [SerializeField] float pushForce;
-    private float lastImageXpos;
-    public float distanceBetweenImages;
-    private float direction;
-    
-
-    private Rigidbody2D body;
-    // private PlayerAnimationController animationController;
-    // private PlayerEntity playerEntity;
-
-    Vector2 lastMoveDirection;
-    private void Awake()
+    public class PlayerMove : MonoBehaviour
     {
-        body = GetComponent<Rigidbody2D>();
-        // animationController = GetComponent<PlayerAnimationController>();
-        // lastMoveDirection = Vector2.down;
-    }
+        [SerializeField] private float _speed;
+        [SerializeField] private float _inputValue;
+        [SerializeField] private float _jumpForce;
+        [SerializeField] private bool _isGrounded;
+        
+        private Rigidbody2D _rigidbody2D;
+        private SpriteRenderer _spriteRenderer;
 
-    // public void Initialize(PlayerEntity entityPlayer)
-    // {
-    //     playerEntity = entityPlayer;
-    // }
-
-    private void FixedUpdate()
-    {
-        if (Input.GetMouseButtonDown(0))
+        private void Awake()
         {
-            body.linearVelocity = new Vector2(0, 0);
-            direction = transform.localScale.x > 0 ? 1f : -1f;
-            body.AddForce(new Vector2(pushForce*direction, 0), ForceMode2D.Impulse);
-            if (Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private void FixedUpdate()
+        {
+            _rigidbody2D.linearVelocityX = _inputValue * _speed;
+        }
+
+        private void LateUpdate()
+        {
+            //여기엔 캐릭터 애니메이션 들어갈거임
+            if (_inputValue != 0)
             {
-                PlayerAfterImagePool.Instance.GetFromPool();
-                lastImageXpos = transform.position.x;
+                _spriteRenderer.flipX = _inputValue < 0;
             }
         }
-        // if (playerEntity != null && playerEntity.IsTalking)
-        // {
-        //     inputValueX = 0;
-        //     inputValueY = 0;
-        // }
-        if (inputValueX != 0 && inputValueY != 0)
+
+        private void OnMove(InputValue value)
         {
-            inputValueY = 0;
+            _inputValue = value.Get<Vector2>().x;
         }
-        body.linearVelocityX = inputValueX * speed;
-        // body.linearVelocityY = inputValueY * speed;
-
-        Vector2 moveVector = new Vector2(inputValueX,0f);
-
-        if (moveVector != Vector2.zero)
+        
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            lastMoveDirection = moveVector.normalized;
+            if (collision.CompareTag("Ground"))
+            {
+                _isGrounded = true;
+            }
         }
 
-        // animationController.AnimationUpdate(moveVector, lastMoveDirection);
-    }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Ground"))
+            {
+                _isGrounded = false;
+            }
+        }
 
-    private void OnMove(InputValue value)
-    {
-        inputValueX = value.Get<Vector2>().x;
-        // inputValueY = value.Get<Vector2>().y;
+        private void OnJump()
+        {
+            if (_isGrounded)
+            {
+                _rigidbody2D.AddForceY(_jumpForce, ForceMode2D.Impulse);
+            }
+        }
     }
 }
