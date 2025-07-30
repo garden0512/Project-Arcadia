@@ -1,0 +1,30 @@
+﻿[
+  {
+    "id" : 0,
+    "title" : "Bronze Sword",
+    "value" : 3,
+    "stats" : {
+      "power" : 2,
+      "defence" : 0,
+      "vitality" : 5
+    },
+    "description" : "가장 기본적인 칼입니다.",
+    "stackable" : false,
+    "rarity" : 6,
+    "slug" : "bronze_sword"
+  },
+  {
+    "id" : 1,
+    "title" : "Silver Sword",
+    "value" : 50,
+    "stats" : {
+      "power" : 5,
+      "defence" : 0,
+      "vitality" : 7
+    },
+    "description" : "은으로 만든 칼입니다.",
+    "stackable" : true,
+    "rarity" : 5,
+    "slug" : "sliver_sword"
+  }
+]

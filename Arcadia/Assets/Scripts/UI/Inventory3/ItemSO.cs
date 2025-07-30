@@ -25,7 +25,7 @@ namespace Arcadia.UI.Inventory3
     }
     
     [CreateAssetMenu(fileName = "ItemSO", menuName = "Add Item/ItemSO")]
-    public class ItemSO : MonoBehaviour
+    public class ItemSO : ScriptableObject
     {
         [Header("아이템 ID")]
         [SerializeField] private int _itemID;
