@@ -1,0 +1,12 @@
+﻿[
+  {
+    "id" : 0,
+    "title" : "Bronze Sword",
+    "value" : 8
+  },
+  {
+    "id" : 1,
+    "title" : "Iron Sword",
+    "value" : 500
+  }
+]
