@@ -1,37 +1,48 @@
-﻿using System;
-using UnityEngine;
-using TMPro;
+﻿using UnityEngine;
 
 namespace Arcadia.Player
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _hp;
-        [SerializeField] private int _maxHp;
-        private int _currentHp;
-        private bool isDead => _currentHp <= 0;
-        
-        public int CurrentHp => _currentHp;
-        public int MaxHp => _maxHp;
+        public int maxHp;
+        public int nowHp;
+        public int attackDamage;
+        public float attackSpeed;
+        public bool attacked = false;
+        //public Image nowHPBar; //추후 HP바가 추가된다면 사용
 
         private void Start()
         {
-            _currentHp = _maxHp;
+            maxHp = 100;
+            nowHp = maxHp;
+            attackDamage = 20;
+            SetAttackSpeed(1.5f);
         }
 
-        private void TakeDamage(int damage)
+        // private void Update()
+        // {
+        //     if (Input.GetMouseButtonDown(0))
+        //     {
+        //         AttackTrue();
+        //     }
+        //     else
+        //     {
+        //         AttackFalse();
+        //     }
+        // }
+        private void AttackTrue()
         {
-            _currentHp -= damage;
-            Debug.Log($"받은 피해량 : {damage}, 체력 잔량 : {_currentHp}");
-            if (isDead)
-            {
-                Die();
-            }
+            attacked = true;
         }
 
-        private void Die()
+        private void AttackFalse()
         {
-            Debug.Log("플레이어 죽음");
+            attacked = false;
+        }
+
+        private void SetAttackSpeed(float speed)
+        {
+            attackSpeed = speed;
         }
     }
 }
