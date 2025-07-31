@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,27 +27,65 @@ namespace Arcadia.UI.Inventory4
             {
                 items.Add(new Item());
                 slots.Add(Instantiate(_inventorySlot));
+                slots[i].GetComponent <Slot>().id = i;
                 slots[i].transform.SetParent(_slotPanel.transform);
             }
             AddItem(0);
+            AddItem(1);
+            AddItem(1);
+            AddItem(1);
+            AddItem(1);
+            AddItem(1);
+            AddItem(1);
+            AddItem(1);
         }
 
         public void AddItem(int id)
         {
             Item itemToAdd = _itemDataBase.FetchItemById(id);
-            for (int i = 0; i < items.Count; i++)
+            if (itemToAdd.Stackable && CheckIfItemIsInInventory(itemToAdd))
             {
-                if (items[i].ID == -1)
+                for (int i = 0; i < items.Count; i++)
                 {
-                    items[i] = itemToAdd;
-                    GameObject itemObj = Instantiate(_inventoryItem);
-                    itemObj.transform.SetParent(slots[i].transform);
-                    itemObj.GetComponent<Image>().sprite = itemToAdd.Sprite;
-                    itemObj.transform.position = Vector2.zero;
-                    break;
+                    if (items[i].ID == id)
+                    {
+                        ItemData itemData = slots[i].transform.GetChild(0).GetComponent<ItemData>();
+                        itemData.amount++;
+                        itemData.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = itemData.amount.ToString();
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < items.Count; i++)
+                {
+                    if (items[i].ID == -1)
+                    {
+                        items[i] = itemToAdd;
+                        GameObject itemObj = Instantiate(_inventoryItem);
+                        itemObj.GetComponent<ItemData>().item = itemToAdd;
+                        itemObj.GetComponent<ItemData>().slot = i;
+                        itemObj.transform.SetParent(slots[i].transform);
+                        itemObj.GetComponent<Image>().sprite = itemToAdd.Sprite;
+                        itemObj.transform.position = Vector2.zero;
+                        itemObj.name = itemToAdd.Title;
+                        break;
+                    }
                 }
             }
         }
 
+        public bool CheckIfItemIsInInventory(Item item)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].ID == item.ID)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
