@@ -26,9 +26,10 @@ namespace Arcadia.UI.Inventory4
             for (int i = 0; i < _slotAmount; i++)
             {
                 items.Add(new Item());
-                slots.Add(Instantiate(_inventorySlot));
-                slots[i].GetComponent <Slot>().id = i;
-                slots[i].transform.SetParent(_slotPanel.transform);
+                var slotGO = Instantiate(_inventorySlot, _slotPanel.transform, false); // parent 지정 + false
+                var slotComp = slotGO.GetComponent<Slot>();
+                slotComp.Initialize(this, i); // ← 참조 주입
+                slots.Add(slotGO);
             }
             AddItem(0);
             AddItem(1);
@@ -63,12 +64,15 @@ namespace Arcadia.UI.Inventory4
                     if (items[i].ID == -1)
                     {
                         items[i] = itemToAdd;
-                        GameObject itemObj = Instantiate(_inventoryItem);
-                        itemObj.GetComponent<ItemData>().item = itemToAdd;
-                        itemObj.GetComponent<ItemData>().slot = i;
-                        itemObj.transform.SetParent(slots[i].transform);
-                        itemObj.GetComponent<Image>().sprite = itemToAdd.Sprite;
-                        itemObj.transform.position = Vector2.zero;
+
+                        var itemObj = Instantiate(_inventoryItem, slots[i].transform, false); // parent + false
+                        var itemData = itemObj.GetComponent<ItemData>();
+                        itemData.Initialize(this, i, itemToAdd); // ← 참조 주입
+
+                        var img = itemObj.GetComponent<Image>();
+                        img.sprite = itemToAdd.Sprite;
+
+                        itemObj.transform.localPosition = Vector3.zero; // local 기준
                         itemObj.name = itemToAdd.Title;
                         break;
                     }

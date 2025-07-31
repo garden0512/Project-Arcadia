@@ -46,7 +46,6 @@ namespace Arcadia.UI.Inventory4
                 }
             }
             return null;
-            _jsonData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/StreamingAssets/Items.json"));
         }
     }
 
