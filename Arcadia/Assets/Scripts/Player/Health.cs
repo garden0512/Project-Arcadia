@@ -30,12 +30,12 @@ namespace Arcadia.Player
         //         AttackFalse();
         //     }
         // }
-        private void AttackTrue()
+        public void AttackTrue()
         {
             attacked = true;
         }
 
-        private void AttackFalse()
+        public void AttackFalse()
         {
             attacked = false;
         }
