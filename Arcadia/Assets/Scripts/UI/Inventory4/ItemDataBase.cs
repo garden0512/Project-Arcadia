@@ -10,7 +10,7 @@ namespace Arcadia.UI.Inventory4
     {
         private List<Item> _items = new List<Item>();
         private JsonData _itemData;
-        private JsonData _jsonData;
+       
 
         private void Start()
         {

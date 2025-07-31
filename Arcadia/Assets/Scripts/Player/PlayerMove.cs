@@ -12,6 +12,7 @@ namespace Arcadia.Player
         
         private Rigidbody2D _rigidbody2D;
         private SpriteRenderer _spriteRenderer;
+        public float inputValue => _inputValue;
 
         private void Awake()
         {
