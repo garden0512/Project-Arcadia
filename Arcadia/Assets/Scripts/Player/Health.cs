@@ -32,6 +32,7 @@ namespace Arcadia.Player
         // }
         public void AttackTrue()
         {
+            Debug.Log("AttackTrue실행됨");
             attacked = true;
         }
 

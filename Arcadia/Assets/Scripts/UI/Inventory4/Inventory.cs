@@ -16,6 +16,8 @@ namespace Arcadia.UI.Inventory4
         public GameObject _inventoryItem;
         public List<Item> items = new List<Item>();
         public List<GameObject> slots = new List<GameObject>();
+        public bool isInventoryOpen = false;
+        public GameObject inventoryPanel;
 
         private void Start()
         {
@@ -39,6 +41,23 @@ namespace Arcadia.UI.Inventory4
             AddItem(1);
             AddItem(1);
             AddItem(1);
+            isInventoryOpen = false;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                if (isInventoryOpen)
+                {
+                    isInventoryOpen = false;
+                }
+                else
+                {
+                    isInventoryOpen = true;
+                }
+                inventoryPanel.SetActive(isInventoryOpen);
+            }
         }
 
         public void AddItem(int id)

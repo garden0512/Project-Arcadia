@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eb7688b8394857e4e8532b2e7d292d11
+guid: b1f9be447dc0fc942b453cb1ba40342b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4828770799117906769
-    second: panel_brown_0
+      213: 192828215509876979
+    second: buttonSquare_grey_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: panel_brown_0
+      name: buttonSquare_grey_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 100
-        height: 100
+        width: 45
+        height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 8, z: 6, w: 4}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 153b337357d330340800000000000000
-      internalID: 4828770799117906769
+      spriteID: 3f083288d301da200800000000000000
+      internalID: 192828215509876979
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d4eafa1e96a64f2439c4e644a6c2794f
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      panel_brown_0: 4828770799117906769
+      buttonSquare_grey_0: 192828215509876979
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

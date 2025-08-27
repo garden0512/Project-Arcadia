@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 55111e9f00c5ed94992417b4a5139a7b
+guid: eb7688b8394857e4e8532b2e7d292d11
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7914030416702933454
-    second: buttonSquare_beige_0
+      213: 4828770799117906769
+    second: panel_brown_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buttonSquare_beige_0
+      name: panel_brown_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 45
-        height: 49
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 7, z: 8, w: 8}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec90731dbb844dd60800000000000000
-      internalID: 7914030416702933454
+      spriteID: 153b337357d330340800000000000000
+      internalID: 4828770799117906769
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: beb9cf49d1c4d79478093964d76dfc48
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      buttonSquare_beige_0: 7914030416702933454
+      panel_brown_0: 4828770799117906769
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
