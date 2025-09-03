@@ -9,7 +9,7 @@ namespace Arcadia.Prototype.InventoryPrototype1
 {
     public class UIInventoryDescription : MonoBehaviour
     {
-        [SerializeField] private Image _itemImage;
+        //[SerializeField] private Image _itemImage;
         [SerializeField] private TextMeshProUGUI _title;
         [SerializeField] private TextMeshProUGUI _description;
 
@@ -20,15 +20,15 @@ namespace Arcadia.Prototype.InventoryPrototype1
 
         public void ResetDescription()
         {
-            this._itemImage.gameObject.SetActive(false);
+            //this._itemImage.gameObject.SetActive(false);
             this._title.text = "";
             this._description.text = "";
         }
 
         public void SetDescription(Sprite sprite, string itemName, string itemDescription)
         {
-            this._itemImage.gameObject.SetActive(true);
-            this._itemImage.sprite = sprite;
+            //this._itemImage.gameObject.SetActive(true);
+            //this._itemImage.sprite = sprite;
             this._title.text = itemName;
             this._description.text = itemDescription;
         }

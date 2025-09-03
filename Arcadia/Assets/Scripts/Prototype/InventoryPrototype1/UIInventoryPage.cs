@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace Arcadia.Prototype.InventoryPrototype1
 {
@@ -10,6 +11,9 @@ namespace Arcadia.Prototype.InventoryPrototype1
         [SerializeField] private RectTransform _inventoryPanelTransform;
         [SerializeField] private UIInventoryDescription _uiInventoryDescription;
         private List<UIInventoryItem> listOfUIItems = new List<UIInventoryItem>();
+        public Sprite image;
+        public int quantity;
+        public string title, description;
 
         private void Awake()
         {
@@ -34,7 +38,8 @@ namespace Arcadia.Prototype.InventoryPrototype1
 
         private void HandleItemSelection(UIInventoryItem obj)
         {
-            Debug.Log(obj.name);
+            _uiInventoryDescription.SetDescription(image, title, description);
+            listOfUIItems[0].Select();
         }
 
         private void HandleBeginDrag(UIInventoryItem obj)
@@ -61,6 +66,7 @@ namespace Arcadia.Prototype.InventoryPrototype1
         {
             gameObject.SetActive(true);
             _uiInventoryDescription.ResetDescription();
+            listOfUIItems[0].SetData(image, quantity);
         }
 
         public void Hide()
