@@ -46,7 +46,7 @@ namespace Arcadia.Prototype.InventoryPrototype1
         {
             mInventoryBase.SetActive(true);
             IsInventoryActive = true;
-            UtilityManager.UnlockCursor();
+            // UtilityManager.UnlockCursor();
         }
         /// <summary>
         /// 인벤토리 닫기
@@ -55,7 +55,36 @@ namespace Arcadia.Prototype.InventoryPrototype1
         {
             mInventoryBase.SetActive(false);
             IsInventoryActive = false;
-            UtilityManager.TryLOckCursor;
+            // UtilityManager.UnlockCursor();
+        }
+
+        public void AcquireItem(Item item, InventorySlot targetSlot, int count = 1)
+        {
+            if (item.CanOverlap)
+            {
+                if (targetSlot.Item != null && targetSlot.Item.IsMask(item))
+                {
+                    if (targetSlot.Item.ItemID == item.ItemID)
+                    {
+                        targetSlot.UpdateSlotCount(count);
+                    }
+                }
+            }
+            else
+            {
+                targetSlot.AddItem(item, count);
+            }
+        }
+
+        public void AcquireItem(Item item, int count = 1)
+        {
+            if (item.CanOverlap)
+            {
+                for (int i = 0; i < mSlots.Length; i++)
+                {
+                    
+                }
+            }
         }
     }
 }

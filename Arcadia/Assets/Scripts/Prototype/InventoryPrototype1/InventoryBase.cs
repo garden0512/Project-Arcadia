@@ -19,7 +19,7 @@ namespace Arcadia.Prototype.InventoryPrototype1
                 mInventoryBase.SetActive(false);
             }
 
-            mSlots = mInventorySlotsParent.GetComponentsInChildren<InvnetorySlot>();
+            mSlots = mInventorySlotsParent.GetComponentsInChildren<InventorySlot>();
         }
     }
 }
