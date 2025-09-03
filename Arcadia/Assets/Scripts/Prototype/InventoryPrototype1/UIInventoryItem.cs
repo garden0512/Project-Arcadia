@@ -65,6 +65,10 @@ namespace Arcadia.Prototype.InventoryPrototype1
 
         public void OnPointerClick(BaseEventData data)
         {
+            if (empty)
+            {
+                return;
+            }
             PointerEventData pointerEventData = (PointerEventData)data;
             if (pointerEventData.button == PointerEventData.InputButton.Right)
             {

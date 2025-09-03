@@ -8,7 +8,14 @@ namespace Arcadia.Prototype.InventoryPrototype1
     {
         [SerializeField] private UIInventoryItem _uiInventoryItem;
         [SerializeField] private RectTransform _inventoryPanelTransform;
+        [SerializeField] private UIInventoryDescription _uiInventoryDescription;
         private List<UIInventoryItem> listOfUIItems = new List<UIInventoryItem>();
+
+        private void Awake()
+        {
+            Hide();
+            _uiInventoryDescription.ResetDescription();
+        }
 
         public void InitializeInventoryUI(int inventorySize)
         {
@@ -53,6 +60,7 @@ namespace Arcadia.Prototype.InventoryPrototype1
         public void Show()
         {
             gameObject.SetActive(true);
+            _uiInventoryDescription.ResetDescription();
         }
 
         public void Hide()
