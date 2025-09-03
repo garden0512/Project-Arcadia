@@ -15,9 +15,39 @@ namespace Arcadia.Prototype.InventoryPrototype1
             for (int i = 0; i < inventorySize; i++)
             {
                 UIInventoryItem uiInventoryItem = Instantiate(_uiInventoryItem, Vector3.zero, Quaternion.identity);
-                uiInventoryItem.transform.SetParent(_inventoryPanelTransform);
+                uiInventoryItem.transform.SetParent(_inventoryPanelTransform, false);
                 listOfUIItems.Add(uiInventoryItem);
+                uiInventoryItem.OnItemClicked += HandleItemSelection;
+                uiInventoryItem.OnItemBeginDrag += HandleBeginDrag;
+                uiInventoryItem.OnItemDroppedOn += HandleSwap;
+                uiInventoryItem.OnItemEndDrag += HandleEndDrag;
+                uiInventoryItem.OnRightMouseBtnClick += HandleShowItemActions;
             }
+        }
+
+        private void HandleItemSelection(UIInventoryItem obj)
+        {
+            Debug.Log(obj.name);
+        }
+
+        private void HandleBeginDrag(UIInventoryItem obj)
+        {
+            
+        }
+
+        private void HandleSwap(UIInventoryItem obj)
+        {
+            
+        }
+
+        private void HandleEndDrag(UIInventoryItem obj)
+        {
+            
+        }
+
+        private void HandleShowItemActions(UIInventoryItem obj)
+        {
+            
         }
 
         public void Show()
