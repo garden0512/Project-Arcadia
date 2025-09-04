@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Arcadia.Camera
+namespace Arcadia.FollowingCamera
 {
     public class FollowingCamera : MonoBehaviour
     {

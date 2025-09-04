@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 namespace Arcadia.Prototype.InventoryPrototype1
 {
@@ -10,14 +11,17 @@ namespace Arcadia.Prototype.InventoryPrototype1
         [SerializeField] private UIInventoryItem _uiInventoryItem;
         [SerializeField] private RectTransform _inventoryPanelTransform;
         [SerializeField] private UIInventoryDescription _uiInventoryDescription;
+        [SerializeField] private MouseFollower mouseFollower;
         private List<UIInventoryItem> listOfUIItems = new List<UIInventoryItem>();
-        public Sprite image;
+        public Sprite image, image2;
         public int quantity;
         public string title, description;
+        private int currentlyDraggedItemIndex = -1;
 
         private void Awake()
         {
             Hide();
+            mouseFollower.Toggle(false);
             _uiInventoryDescription.ResetDescription();
         }
 
@@ -44,7 +48,8 @@ namespace Arcadia.Prototype.InventoryPrototype1
 
         private void HandleBeginDrag(UIInventoryItem obj)
         {
-            
+            mouseFollower.Toggle(true);
+            mouseFollower.SetData(image, quantity);
         }
 
         private void HandleSwap(UIInventoryItem obj)
@@ -54,7 +59,7 @@ namespace Arcadia.Prototype.InventoryPrototype1
 
         private void HandleEndDrag(UIInventoryItem obj)
         {
-            
+            mouseFollower.Toggle(false);
         }
 
         private void HandleShowItemActions(UIInventoryItem obj)
@@ -67,6 +72,7 @@ namespace Arcadia.Prototype.InventoryPrototype1
             gameObject.SetActive(true);
             _uiInventoryDescription.ResetDescription();
             listOfUIItems[0].SetData(image, quantity);
+            listOfUIItems[1].SetData(image2, quantity);
         }
 
         public void Hide()
