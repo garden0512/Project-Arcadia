@@ -46,23 +46,40 @@ namespace Arcadia.Prototype.InventoryPrototype1
             listOfUIItems[0].Select();
         }
 
-        private void HandleBeginDrag(UIInventoryItem obj)
+        private void HandleBeginDrag(UIInventoryItem inventoryItem)
         {
+            int index = listOfUIItems.IndexOf(inventoryItem);
+            if (index == -1)
+            {
+                return;
+            }
+            currentlyDraggedItemIndex = index;
             mouseFollower.Toggle(true);
-            mouseFollower.SetData(image, quantity);
+            mouseFollower.SetData(index == 0? image : image2, quantity);
         }
 
-        private void HandleSwap(UIInventoryItem obj)
+        private void HandleSwap(UIInventoryItem inventoryItem)
         {
+            int index = listOfUIItems.IndexOf(inventoryItem);
+            if (index == -1)
+            {
+                mouseFollower.Toggle(false);
+                currentlyDraggedItemIndex = -1;
+                return;
+            }
+            listOfUIItems[currentlyDraggedItemIndex].SetData(index == 0 ? image : image2, quantity);
+            listOfUIItems[index].SetData(currentlyDraggedItemIndex == 0 ? image : image2, quantity);
+            mouseFollower.Toggle(false);
+            currentlyDraggedItemIndex = -1;
             
         }
 
-        private void HandleEndDrag(UIInventoryItem obj)
+        private void HandleEndDrag(UIInventoryItem inventoryItem)
         {
             mouseFollower.Toggle(false);
         }
 
-        private void HandleShowItemActions(UIInventoryItem obj)
+        private void HandleShowItemActions(UIInventoryItem inventoryItem)
         {
             
         }
