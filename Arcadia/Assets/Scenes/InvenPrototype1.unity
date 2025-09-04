@@ -2289,7 +2289,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiInventoryPageWithoutFrameTitle: {fileID: 1194695233}
+  _inventoryData: {fileID: 11400000, guid: 1eefc8f783e72064c81442b98c9494fd, type: 2}
   inventorySize: 20
+  initialItems:
+  - quantity: 4
+    item: {fileID: 11400000, guid: 2b0351dc0f40adb4dad9c8b9862e3e9f, type: 2}
+  - quantity: 3
+    item: {fileID: 11400000, guid: 292526d10b5b2094c9d6757299e84aee, type: 2}
+  - quantity: 0
+    item: {fileID: 0}
+  - quantity: 3
+    item: {fileID: 11400000, guid: 2b0351dc0f40adb4dad9c8b9862e3e9f, type: 2}
 --- !u!4 &404277820
 Transform:
   m_ObjectHideFlags: 0
@@ -4523,11 +4533,6 @@ MonoBehaviour:
   _inventoryPanelTransform: {fileID: 861614143}
   _uiInventoryDescription: {fileID: 503299220}
   mouseFollower: {fileID: 414672219}
-  image: {fileID: -1387151819714550007, guid: af91545075451ef48806317c4ecefd72, type: 3}
-  image2: {fileID: 0}
-  quantity: 1
-  title: "\uAE08\uAC80"
-  description: "\uB9C8\uD06C\uC5D0\uC11C \uC4F0\uB808\uAE30\uC784"
 --- !u!1 &1205298017
 GameObject:
   m_ObjectHideFlags: 0
