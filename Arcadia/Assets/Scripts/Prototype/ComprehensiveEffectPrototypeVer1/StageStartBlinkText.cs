@@ -8,11 +8,13 @@ namespace Arcadia.Prototype.ComprehensiveEffectPrototypeVer1
     {
         public TextMeshProUGUI stageNumber;
         public TextMeshProUGUI stageName;
+        public TextMeshProUGUI stageSubname;
 
         public void Start()
         {
             stageName.gameObject.SetActive(false);
             stageNumber.gameObject.SetActive(false);
+            stageSubname.gameObject.SetActive(false);
             StartCoroutine(DelayAndBlinkText());
         }
 
@@ -22,9 +24,12 @@ namespace Arcadia.Prototype.ComprehensiveEffectPrototypeVer1
             stageNumber.gameObject.SetActive(true);
             yield return new WaitForSeconds(1f);
             stageName.gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.6f);
+            stageSubname.gameObject.SetActive(true);
             yield return new WaitForSeconds(2f);
             stageNumber.gameObject.SetActive(false);
             stageName.gameObject.SetActive(false);
+            stageSubname.gameObject.SetActive(false);
         }
     }
 }
