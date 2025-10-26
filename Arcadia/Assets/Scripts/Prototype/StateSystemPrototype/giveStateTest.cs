@@ -39,7 +39,8 @@ namespace Arcadia.Prototype.StateSystemPrototype
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                
+                isWalking = true;
+                Debug.Log($"isWalking: {isWalking}");
             }
         }
     }
